@@ -1,45 +1,23 @@
+import {SafeAreaView, ScrollView, Text} from 'react-native';
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import FlatCards from './components/FlatCards';
+import ElevatedCards from './components/ElevatedCards';
+import FancyCards from './components/FancyCards';
+import ActionCards from './components/ActionCards';
+import ContactList from './components/ContactList';
 
-function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
   return (
-    <>
-      <View style={styles.container}>
-        <Text style={isDarkMode ? styles.whiteText : styles.blackText}>
-          Hello World!!!
-        </Text>
-        <Text style={isDarkMode ? styles.blackText : styles.whiteText}>
-          Dev Mohsin Here
-        </Text>
-      </View>
-    </>
+    <SafeAreaView>
+      <ScrollView>
+        <FlatCards />
+        <ElevatedCards />
+        <FancyCards />
+        <ActionCards />
+        <ContactList />
+      </ScrollView>
+    </SafeAreaView>
   );
-}
+};
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: 'red',
-    borderWidth: 1,
-    backgroundColor: '#f4f4f4',
-  },
-  whiteText: {
-    color: 'grey',
-  },
-  blackText: {
-    color: '#000',
-  },
-});
